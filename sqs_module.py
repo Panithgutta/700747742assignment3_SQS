@@ -1,5 +1,4 @@
 import boto3
-import logging
 import json
 from botocore.exceptions import ClientError
 logger = logging.getLogger(__name__)
