@@ -9,9 +9,10 @@ queue=sqs.create_queue(
 print("Created queue '%s' with URL=%s",'myPytonQueue',queue.url)
 
 
-def send_message_to_sqs_queue(message):
-    queue_name = os.environ.get('SQS_QUEUE_NAME', 'SQSASSIGNMENT3')
-    response = queue.send_message(MessageBody=json.dumps(message))
-    print(f"Message sent to SQS queue {queue_name}: {response.get('MessageId')}")
-   message = {'key': 'value'}
-send_message_to_sqs_queue('Name : Panith kumar')
+def send_message_to_sqs(message):
+    response = queue.send_message(MessageBody=message)
+    print(f"Message sent with ID: {response['MessageId']}")
+
+
+
+send_message_to_sqs("Hello world")
